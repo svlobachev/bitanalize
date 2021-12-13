@@ -37,11 +37,12 @@ public class BitanalizeApplication {
         long startTime = System.currentTimeMillis();
 
         ReadFile readFile = new ReadFile(numsFromConsole);
-        double[][] arrayCountingBytes = readFile.readFileToArray();
+        double[][] arrayCountingPiecesOfBytes = readFile.readFileToArray();
 
 
 
         long finishTime = System.currentTimeMillis();
-        System.out.println("\nвремя работы=" + (finishTime-startTime) + "ms.");
+        String result = String.format("%.3f",(double)((finishTime-startTime)/1000)/60);
+        System.out.println("\nвремя работы=" + result + " m.");
     }
 }

@@ -48,7 +48,7 @@ public class ReadFile {
         // этот блок формирует строку в виде - битовое представление как строка
         for (int i=1; i<=16; i++) {// это разрядность возвращаемой строки
 //            for (long j=startByte; j< finishByte; j+=(i+1)) {//это рабочий полный ваиант обхода
-            for (long j=startByte; j<=1; j+=(i+1)) {// это тестовый, только по первой строке каждого разряда
+            for (long j=startByte; j<=10000; j+=(i+1)) {// это тестовый
                 long[] longPiecesOfString = new long[8];
                 String[] arrPiecesOfString = new String[8];
                 try {
@@ -81,12 +81,35 @@ public class ReadFile {
                 }
             }
         }
+
 //        for (int b=0; b<arrayCountingPiecesOfBytes.length; b++){
 //            System.out.println(Arrays.toString(arrayCountingPiecesOfBytes[b]));
 //        }
 
-        return  arrayCountingPiecesOfBytes;
+        //считаем долю присутствия по формуле от заказчика TAB.ic [i] = int(TAB.count [i]/(Sum(TAB.count [i]))
+        return calculatingThePercentageOfOccurrences(arrayCountingPiecesOfBytes);
     }
+
+    private double[][] calculatingThePercentageOfOccurrences(double[][] arrayCountingPiecesOfBytes){
+        double sumCountbitArray;
+        for (int i=0; i < 16;  i++) {
+            sumCountbitArray = 0;
+            for (int ii = 0; ii < arrayCountingPiecesOfBytes[i].length; ii++) {// считаем общую сумму для каждой таблицы учитывая её размерность
+                sumCountbitArray += arrayCountingPiecesOfBytes[i][ii];
+            }
+            for (int ii = 0; ii < arrayCountingPiecesOfBytes[i].length; ii++) {
+                //считаем долю присутствия по формуле от заказчика TAB.ic [i] = int(TAB.count [i]/(Sum(TAB.count [i]))
+                arrayCountingPiecesOfBytes[i][ii] = arrayCountingPiecesOfBytes[i][ii] / sumCountbitArray;
+            }
+        }
+
+//        for (int b=0; b<arrayCountingPiecesOfBytes.length; b++){
+//            System.out.println(Arrays.toString(arrayCountingPiecesOfBytes[b]));
+//        }
+
+        return arrayCountingPiecesOfBytes;
+    }
+
     private static long parseLong(String s) {
         return new BigInteger(s, 2).longValue();
     }

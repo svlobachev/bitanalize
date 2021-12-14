@@ -23,6 +23,8 @@ public class BitanalizeApplication {
         CreateAFolder createAFolder = new CreateAFolder();
         createAFolder.setDirName("files");
         createAFolder.createDir();
+        createAFolder.setDirName("out");
+        createAFolder.createDir();
 
         List<Long> numsFromConsole = new ArrayList<>();
 
@@ -51,7 +53,7 @@ public class BitanalizeApplication {
         LinkedHashMap[] mapArrayCountingBytes = sortingInMap.sortingArrayCountingPiecesOfBytesInMap();
 
         TableComparison tableComparison = new TableComparison(mapArrayCountingBytes);
-//        tableComparison.calculatingTheWinnerTable();
+        tableComparison.calculatingTheWinnerTable();
 
 
         long finishTime = System.currentTimeMillis();

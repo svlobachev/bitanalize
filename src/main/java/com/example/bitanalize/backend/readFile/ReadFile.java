@@ -78,8 +78,6 @@ public class ReadFile {
                 }
             }
         }
-
-
         return arrayCountingPiecesOfBytes;
     }
 

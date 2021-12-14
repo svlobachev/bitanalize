@@ -2,37 +2,48 @@ package com.example.bitanalize.backend.compare;
 
 import java.util.LinkedHashMap;
 
-public class TableComparison {
-    private  LinkedHashMap[] mapArrayCountingBytes;
+public class TableComparison<winner> {
+    private final LinkedHashMap[] mapArrayCountingBytes;
 
     public TableComparison(LinkedHashMap[] mapArrayCountingBytes) {
         this.mapArrayCountingBytes = mapArrayCountingBytes;
     }
-    public void calculatingTheWinnerTable(){
-        int[] winner = new int[16];
-        for (int i = 15; i < mapArrayCountingBytes.length; i--) {
-            int j =0;
-            if(i > 0) {
-                for (Object key : mapArrayCountingBytes[i - 1].keySet()) {
-                    int jj = 0;
-                    for (Object underKey : mapArrayCountingBytes[i].keySet()) {
-                        if (j == jj) {// одинаковые по счету строки
-                            if ((double) mapArrayCountingBytes[i - 1].get(key) > (double) mapArrayCountingBytes[i].get(underKey)) {
-                                winner[i - 1] = 1;
-                                winner[i] = 0;
-                            } else if ((double) mapArrayCountingBytes[i - 1].get(key) < (double) mapArrayCountingBytes[i].get(underKey)) {
-                                winner[i - 1] = 0;
-                                winner[i] = 1;
-                            }
-//                        System.out.println("Tabl# " + (i-1) +" Str# : "+ j + " Val: " + mapArrayCountingBytes[i-1].get(key));
-//                        System.out.println("Tabl# " + (i) +" Str# : "+ jj + " Val: " + mapArrayCountingBytes[i].get(underKey));
-                            break;
-                        }
-                        jj++;
-                    }
-                    j++;
-                }
-            }
+    public int calculatingTheWinnerTable(){
+        int winner =15;
+        for (int i = 15; i > 0; i--) {
+           if(winner != i ) winner = compareTwoTables(i, winner);
         }
+        return winner;
+    }
+    private int compareTwoTables(int table1, int table2){
+        int tableNumLess;
+        int tableNumMore;
+        if(table1 > table2){//
+            tableNumLess = table2;
+            tableNumMore = table1;
+        }
+        else if(table1 < table2){
+            tableNumLess = table1;
+            tableNumMore = table2;
+        }
+        else return -1;
+        int j =0;
+        for (Object keyTableNumLess : mapArrayCountingBytes[tableNumLess].keySet()) {
+            int jj = 0;
+            for (Object keyTableNumMore : mapArrayCountingBytes[tableNumMore].keySet()) {
+                if (j == jj) {// одинаковые по счету строки
+                    if ((double) mapArrayCountingBytes[tableNumLess].get(keyTableNumLess) > (double) mapArrayCountingBytes[tableNumMore].get(keyTableNumMore)) {
+//                        System.out.println("Tab1: "+tableNumLess+" Tab2: "+ tableNumMore +" WinnerTab: "+tableNumLess+" str: "+j);
+                        return tableNumLess;
+                    } else if ((double) mapArrayCountingBytes[tableNumLess].get(keyTableNumLess) < (double) mapArrayCountingBytes[tableNumMore].get(keyTableNumMore)) {
+//                        System.out.println("Tab1: "+tableNumLess+" Tab2: "+ tableNumMore +" WinnerTab: "+tableNumLess+" str: "+j);
+                        return tableNumMore;
+                    }
+                }
+                jj++;
+            }
+            j++;
+        }
+        return -1;
     }
 }

@@ -15,9 +15,7 @@ public class ScanDirectory {
         if (dir.isDirectory()) {
             // получаем все вложенные объекты в каталоге
             for (File item : Objects.requireNonNull(dir.listFiles())) {
-
                 if (!item.isDirectory()) {
-
                     filesList.add(item.getName());
 //                    System.out.println(item.getName() + "\t file");
                 }

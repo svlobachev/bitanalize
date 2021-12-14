@@ -11,7 +11,7 @@ public class SortingInMap {
     }
     public LinkedHashMap[] sortingArrayCountingPiecesOfBytesInMap(){
 
-        LinkedHashMap<Integer, Double> tempHashMap;
+        Map<Integer, Double> tempHashMap = new LinkedHashMap<>();
         LinkedHashMap[] mapArrayCountingBytes;// создаем  массив
 
         mapArrayCountingBytes = new LinkedHashMap[16];// объявим размер уровня

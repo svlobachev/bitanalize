@@ -69,8 +69,6 @@ public class ReadFile {
                 } catch (Exception e) {
 //                            e.printStackTrace();
                 }
-//                System.out.println(Arrays.toString(arrPiecesOfString));
-//                System.out.println(Arrays.toString(longPiecesOfString));
 
                 for (int g=0; g < arrPiecesOfString.length; g++) {
                     if (arrPiecesOfString[g] != null) {
@@ -81,10 +79,6 @@ public class ReadFile {
                 }
             }
         }
-
-//        for (int b=0; b<arrayCountingPiecesOfBytes.length; b++){
-//            System.out.println(Arrays.toString(arrayCountingPiecesOfBytes[b]));
-//        }
 
         //считаем долю присутствия по формуле от заказчика TAB.ic [i] = int(TAB.count [i]/(Sum(TAB.count [i]))
         return calculatingThePercentageOfOccurrences(arrayCountingPiecesOfBytes);
@@ -102,10 +96,6 @@ public class ReadFile {
                 arrayCountingPiecesOfBytes[i][ii] = arrayCountingPiecesOfBytes[i][ii] / sumCountbitArray;
             }
         }
-
-//        for (int b=0; b<arrayCountingPiecesOfBytes.length; b++){
-//            System.out.println(Arrays.toString(arrayCountingPiecesOfBytes[b]));
-//        }
 
         return arrayCountingPiecesOfBytes;
     }

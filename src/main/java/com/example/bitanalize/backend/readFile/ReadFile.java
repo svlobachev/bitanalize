@@ -79,11 +79,12 @@ public class ReadFile {
             }
         }
 
-        //считаем долю присутствия по формуле от заказчика TAB.ic [i] = int(TAB.count [i]/(Sum(TAB.count [i]))
-        return calculatingThePercentageOfOccurrences(arrayCountingPiecesOfBytes);
+
+        return arrayCountingPiecesOfBytes;
     }
 
-    private double[][] calculatingThePercentageOfOccurrences(double[][] arrayCountingPiecesOfBytes){
+    public double[][] calculatingThePercentageOfOccurrences(double[][] arrayCountingPiecesOfBytes){
+        //считаем долю присутствия по формуле от заказчика TAB.ic [i] = int(TAB.count [i]/(Sum(TAB.count [i]))
         double sumCountbitArray;
         for (int i=0; i < 16;  i++) {
             sumCountbitArray = 0;

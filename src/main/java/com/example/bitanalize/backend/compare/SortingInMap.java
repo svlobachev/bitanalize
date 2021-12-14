@@ -4,10 +4,10 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class SortingInMap {
-   private final double[][]  arrayCountingPiecesOfBytes;
+   private final double[][] weightArrayCountingPiecesOfBytes;
 
     public SortingInMap(double[][] arrayCountingPiecesOfBytes) {
-        this.arrayCountingPiecesOfBytes = arrayCountingPiecesOfBytes;
+        this.weightArrayCountingPiecesOfBytes = arrayCountingPiecesOfBytes;
     }
     public LinkedHashMap[] sortingArrayCountingPiecesOfBytesInMap(){
 
@@ -16,10 +16,10 @@ public class SortingInMap {
 
         mapArrayCountingBytes = new LinkedHashMap[16];// объявим размер уровня
 
-        for (int i = 0; i < arrayCountingPiecesOfBytes.length; i++) {
+        for (int i = 0; i < weightArrayCountingPiecesOfBytes.length; i++) {
             tempHashMap = new LinkedHashMap<>();
-            for (int ii = 0; ii < arrayCountingPiecesOfBytes[i].length; ii++) {
-                tempHashMap.put(ii, arrayCountingPiecesOfBytes[i][ii]);
+            for (int ii = 0; ii < weightArrayCountingPiecesOfBytes[i].length; ii++) {
+                tempHashMap.put(ii, weightArrayCountingPiecesOfBytes[i][ii]);
             }
 
             final LinkedHashMap<Integer, Double> newMap = new LinkedHashMap<>();

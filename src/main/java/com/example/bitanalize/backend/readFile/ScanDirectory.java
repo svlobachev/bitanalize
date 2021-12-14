@@ -1,5 +1,7 @@
 package com.example.bitanalize.backend.readFile;
 
+import org.springframework.stereotype.Component;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;

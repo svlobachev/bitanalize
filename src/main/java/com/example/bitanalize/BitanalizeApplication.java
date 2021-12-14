@@ -44,13 +44,14 @@ public class BitanalizeApplication {
         long startTime = System.currentTimeMillis();
 
         ReadFile readFile = new ReadFile(numsFromConsole);
-        double[][] arrayCountingPiecesOfBytes = readFile.readFileToArray();
+        double[][] arrayCountingPiecesOfBytes = readFile.readFileToArray();// подсчет вхождений
+        double[][] weightArrayCountingPiecesOfBytes = readFile.calculatingThePercentageOfOccurrences(arrayCountingPiecesOfBytes); // подсчет доли присутствия
 
-        SortingInMap sortingInMap = new SortingInMap(arrayCountingPiecesOfBytes);
+        SortingInMap sortingInMap = new SortingInMap(weightArrayCountingPiecesOfBytes);
         LinkedHashMap[] mapArrayCountingBytes = sortingInMap.sortingArrayCountingPiecesOfBytesInMap();
 
         TableComparison tableComparison = new TableComparison(mapArrayCountingBytes);
-        tableComparison.calculatingTheWinnerTable();
+//        tableComparison.calculatingTheWinnerTable();
 
 
         long finishTime = System.currentTimeMillis();

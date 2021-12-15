@@ -94,17 +94,19 @@ public class CSVWriter {
             String[] columnNames = {"Indx", "Num", "Count", "Ic"};
             for (int i = 1; i < 16; i++) {
                 for (int j = 0; j < writePreparationArray[i].length; j++) {
-                    System.arraycopy(writePreparationArray[i][j], 0, arrayForconsoleTable[i][j], 0, 4);
+                    for (int k = 0; k < 4; k++) {
+                        arrayForconsoleTable[i][j][k] = writePreparationArray[i][j][k];
+                    }
                 }
             }
             System.out.println("\nТаблица победитель: Х"+tableWinner);
-            System.out.println(filename);
+            System.out.println("Файл: "+filename);
             TextTable tt = new TextTable(columnNames, arrayForconsoleTable[tableWinner]);
 
             tt.printTable();
 
             System.out.println("\nТаблица победитель: Х"+tableWinner);
-            System.out.println(filename);
+            System.out.println("Файл: "+filename);
         }
     }
     public Object [][][] csvPreparation(){

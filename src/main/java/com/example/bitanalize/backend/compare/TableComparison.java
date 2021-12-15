@@ -2,18 +2,18 @@ package com.example.bitanalize.backend.compare;
 
 import java.util.LinkedHashMap;
 
-public class TableComparison<winner> {
+public class TableComparison {
     private final LinkedHashMap[] mapArrayCountingBytes;
 
     public TableComparison(LinkedHashMap[] mapArrayCountingBytes) {
         this.mapArrayCountingBytes = mapArrayCountingBytes;
     }
     public int calculatingTheWinnerTable(){
-        int tableWinner =15;
+        int winner =15;
         for (int i = 15; i > 0; i--) {
-           if(tableWinner != i ) tableWinner = compareTwoTables(i, tableWinner);
+           if(winner != i ) winner = compareTwoTables(i, winner);
         }
-        return tableWinner;
+        return winner;
     }
     private int compareTwoTables(int table1, int table2){
         int tableNumLess;

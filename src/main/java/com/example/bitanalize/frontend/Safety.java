@@ -40,8 +40,8 @@ public class Safety {
                     "\nт. +79525687080 " +
                     "Skype: sv_lobachev");
 
-//            System.out.println(currentTime);
-//            System.out.println((currentTime) + (60*60*24*3)*1000);
+            System.out.println(currentTime);
+            System.out.println((currentTime) + (60*60*24*7)*1000);
 
             System.exit(0);
         }

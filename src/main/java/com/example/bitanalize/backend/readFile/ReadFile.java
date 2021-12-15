@@ -3,6 +3,7 @@ package com.example.bitanalize.backend.readFile;
 import java.io.File;
 import java.math.BigInteger;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static org.apache.commons.io.FileUtils.readFileToByteArray;
@@ -78,6 +79,9 @@ public class ReadFile {
                 }
             }
         }
+//        for (int i = 0; i < arrayCountingPiecesOfBytes.length; i++) {
+//            System.out.println(Arrays.toString(arrayCountingPiecesOfBytes[i]));
+//        }
         return arrayCountingPiecesOfBytes;
     }
 

@@ -23,8 +23,8 @@ public class BitanalizeApplication {
         SpringApplication.run(BitanalizeApplication.class, args);
         ApplicationContext context = new AnnotationConfigApplicationContext("com.exemple.bitanalize");
 
-        Safety safety = new Safety();
-        safety.SafetyRun();
+//        Safety safety = new Safety();
+//        safety.SafetyRun();
 
         CreateAFolder createAFolder = new CreateAFolder();
         createAFolder.setDirName("files");
@@ -42,7 +42,7 @@ public class BitanalizeApplication {
         long num4 = frontendConsole.stepFour();// запрашиваем инфо от пользователя, сохранять / не сохранять в таблицу
         numsFromConsole.add(num4);//добавим ответ пользователя в список
 
-//        numsFromConsole.add((long) 4);// это для теста
+//        numsFromConsole.add((long) 2);// это для теста
 //        numsFromConsole.add((long) 0);// это для теста
 //        numsFromConsole.add((long) 1457664);// это для теста
 //        numsFromConsole.add((long) 0);// это для теста

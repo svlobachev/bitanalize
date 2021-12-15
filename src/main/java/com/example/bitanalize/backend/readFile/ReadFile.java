@@ -46,8 +46,8 @@ public class ReadFile {
 
         // этот блок формирует строку в виде - битовое представление как строка
         for (int i=1; i<=16; i++) {// это разрядность возвращаемой строки
-//            for (long j=startByte; j< finishByte; j+=(i+1)) {//это рабочий полный ваиант обхода
-            for (long j=startByte; j<=10000; j+=(i+1)) {// это тестовый
+            for (long j=startByte; j< finishByte; j+=(i+1)) {//это рабочий полный ваиант обхода
+//            for (long j=startByte; j<=10000; j+=(i+1)) {// это тестовый
                 long[] longPiecesOfString = new long[8];
                 String[] arrPiecesOfString = new String[8];
                 try {
@@ -82,6 +82,25 @@ public class ReadFile {
     }
 
     public double[][] calculatingThePercentageOfOccurrences(double[][] arrayCountingPiecesOfBytes){
+
+        double[][] weightArrayCountingPiecesOfBytes = new double[16][];// объявим
+
+        weightArrayCountingPiecesOfBytes[0] = new double[2];// для 1 битных значений 2^1=2
+        weightArrayCountingPiecesOfBytes[1] = new double[4];// для 2 битных значений 2^2=4
+        weightArrayCountingPiecesOfBytes[2] = new double[8];// для 3 битных значений 2^3=8
+        weightArrayCountingPiecesOfBytes[3] = new double[16];// для 4 битных значений 2^4=16
+        weightArrayCountingPiecesOfBytes[4] = new double[32];// для 5 битных значений 2^5=32
+        weightArrayCountingPiecesOfBytes[5] = new double[64];// для 6 битных значений 2^6=64
+        weightArrayCountingPiecesOfBytes[6] = new double[128];// для 7 битных значений 2^7=128
+        weightArrayCountingPiecesOfBytes[7] = new double[256];// для 8 битных значений 2^8=256
+        weightArrayCountingPiecesOfBytes[8] = new double[512];// для 9 битных значений 2^9=512
+        weightArrayCountingPiecesOfBytes[9] = new double[1024];// для 10 битных значений 2^10=1024
+        weightArrayCountingPiecesOfBytes[10] = new double[2048];// для 11 битных значений 2^11=2048
+        weightArrayCountingPiecesOfBytes[11] = new double[4096];// для 12 битных значений 2^12=4096
+        weightArrayCountingPiecesOfBytes[12] = new double[8192];// для 13 битных значений 2^13=8192
+        weightArrayCountingPiecesOfBytes[13] = new double[16384];// для 14 битных значений 2^14=16384
+        weightArrayCountingPiecesOfBytes[14] = new double[32768];// для 15 битных значений 2^15=32768
+        weightArrayCountingPiecesOfBytes[15] = new double[65536];// для 16 битных значений 2^16=65536
         //считаем долю присутствия по формуле от заказчика TAB.ic [i] = int(TAB.count [i]/(Sum(TAB.count [i]))
         double sumCountbitArray;
         for (int i=0; i < 16;  i++) {
@@ -91,11 +110,11 @@ public class ReadFile {
             }
             for (int ii = 0; ii < arrayCountingPiecesOfBytes[i].length; ii++) {
                 //считаем долю присутствия по формуле от заказчика TAB.ic [i] = int(TAB.count [i]/(Sum(TAB.count [i]))
-                arrayCountingPiecesOfBytes[i][ii] = arrayCountingPiecesOfBytes[i][ii] / sumCountbitArray;
+                weightArrayCountingPiecesOfBytes[i][ii] = arrayCountingPiecesOfBytes[i][ii] / sumCountbitArray;
             }
         }
 
-        return arrayCountingPiecesOfBytes;
+        return weightArrayCountingPiecesOfBytes;
     }
 
     private static long parseLong(String s) {

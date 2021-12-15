@@ -16,7 +16,7 @@ public class CreateAFolder {
 
     // if the directory does not exist, create it
         if (!theDir.exists()) {
-            System.out.println("Создание директории: " + theDir.getName());
+//            System.out.println("Создание директории: " + theDir.getName());
             boolean result = false;
 
             try {
@@ -26,7 +26,7 @@ public class CreateAFolder {
                 //handle it
             }
             if (result) {
-                System.out.println("Директория создана.");
+                System.out.println("Директория создана. " + theDir.getName());
             }
         }
     }

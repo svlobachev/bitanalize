@@ -9,11 +9,11 @@ public class TableComparison<winner> {
         this.mapArrayCountingBytes = mapArrayCountingBytes;
     }
     public int calculatingTheWinnerTable(){
-        int winner =15;
+        int tableWinner =15;
         for (int i = 15; i > 0; i--) {
-           if(winner != i ) winner = compareTwoTables(i, winner);
+           if(tableWinner != i ) tableWinner = compareTwoTables(i, tableWinner);
         }
-        return winner;
+        return tableWinner;
     }
     private int compareTwoTables(int table1, int table2){
         int tableNumLess;
@@ -44,6 +44,6 @@ public class TableComparison<winner> {
             }
             j++;
         }
-        return -1;
+        return tableNumLess;
     }
 }

@@ -3,7 +3,6 @@ package com.example.bitanalize.backend.readFile;
 import java.io.File;
 import java.math.BigInteger;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import static org.apache.commons.io.FileUtils.readFileToByteArray;
@@ -47,8 +46,8 @@ public class ReadFile {
 
         // этот блок формирует строку в виде - битовое представление как строка
         for (int i=1; i<=16; i++) {// это разрядность возвращаемой строки
-            for (long j=startByte; j< finishByte; j+=(i+1)) {//это рабочий полный ваиант обхода
-//            for (long j=startByte; j<=10000; j+=(i+1)) {// это тестовый
+//            for (long j=startByte; j< finishByte; j+=(i+1)) {//это рабочий полный ваиант обхода
+            for (long j=startByte; j<=10000; j+=(i+1)) {// это тестовый
                 long[] longPiecesOfString = new long[8];
                 String[] arrPiecesOfString = new String[8];
                 try {

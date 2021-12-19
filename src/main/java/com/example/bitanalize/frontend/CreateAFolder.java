@@ -1,8 +1,7 @@
 package com.example.bitanalize.frontend;
 
 
-import java.io.*;
-
+import java.io.File;
 
 public class CreateAFolder {
     private String dirName;

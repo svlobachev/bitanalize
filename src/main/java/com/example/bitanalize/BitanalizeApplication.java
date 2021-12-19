@@ -21,7 +21,7 @@ public class BitanalizeApplication {
 
     public static void main(String[] args) throws Exception {
         SpringApplication.run(BitanalizeApplication.class, args);
-        ApplicationContext context = new AnnotationConfigApplicationContext("com.exemple.bitanalize");
+        ApplicationContext context = new AnnotationConfigApplicationContext("com.example.bitanalize");
 
 //        Safety safety = new Safety();
 //        safety.SafetyRun();
